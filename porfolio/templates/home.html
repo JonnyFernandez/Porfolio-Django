@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<header class="row bg-black my-auto">
+   <div class="col-md-4 my-auto">
+    <img src="{% static 'porfolio/item1.png' %}" alt="" width="400">
+   </div>
+
+   <div class="col-md-8 text-white my-auto" >
+       <h1>I am Jonny <strong>Fernandez</strong> </h1>
+       <h3>Python fullStack Developer</h3>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet facilis nemo minima neque quidem repellendus, officia perspiciatis sapiente nihil suscipit consequuntur beatae architecto atque mollitia ad, in sint aut ullam at ipsum laudantium quos! Dolore excepturi natus minima culpa ea blanditiis expedita iusto, aut nihil obcaecati pariatur, rem enim tempore quam cumque commodi ut eveniet vel reprehenderit voluptatum libero nobis omnis. Ipsum velit reiciendis soluta tempore. Eum similique illo repellat suscipit praesentium id ratione tempora eligendi excepturi odit, aliquam cumque natus. Nulla fuga enim, quas amet, perspiciatis cupiditate, possimus ab dolor veritatis recusandae iste repudiandae molestiae hic ea vero veniam. </p>
+       <a href="{% static 'porfolio/FernandezIn.pdf' %}" class="btn btn-primary btn-ms rounded-0 my-3" >Download CV</a>
+   </div>
+
+</header>
+
+<div class="row my-4 text-center">
+
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, quidem.</p>
+   
+    {% for x in project %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{x.image.url}}" alt="{{x.title}}"  class="img-top">
+            <div class="card-body">
+
+                <h2>{{x.title}}</h2>            
+                <p>{{x.description}}</p>
+            
+                {% if x.url %}
+                <a href="{{x.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{x.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    
+
+    {% endfor %}
+    {% endblock %}
+</div>
+
+
+
+
+   
